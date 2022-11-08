@@ -3,8 +3,8 @@ import serial
 class Comms:
     TERMINATOR = "\r".encode("UTF8")
 
-    def __init__(self, timeout=1):
-        self.serial = serial.Serial("/dev/tty.usbmodem14101", 115200, timeout=timeout)
+    def __init__(self, port="/dev/tty.usbmodem14101", timeout=1):
+        self.serial = serial.Serial(port, 115200, timeout=timeout)
 
     def send(self, text: str):
         line = "%s\r\f" % text
